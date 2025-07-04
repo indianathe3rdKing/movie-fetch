@@ -4,8 +4,11 @@ import { motion } from "motion/react";
 
 function Navigation() {
   return (
-    <div className="backdrop-blur-lg z-40">
-      <ul className="list-none w-full items-center flex flex-col pt-20 text-2xl">
+    <div
+      className="fixed inset-0 backdrop-blur-lg bg-black/30 flex items-center justify-center"
+      style={{ zIndex: 70 }}
+    >
+      <ul className="list-none w-full items-center flex flex-col text-2xl">
         <motion.li
           className="mb-4 hover-animation "
           initial={{ opacity: 0, y: -10 }}
@@ -51,16 +54,43 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="">
-      <div className="fixed flex p-4 justify-between items-center bg-transparent w-full h-16 z-50">
+      <div
+        className="fixed flex p-4 justify-between items-center bg-transparent w-full h-16 z-50"
+        style={{ zIndex: 80 }}
+      >
         <h2 className="text-xl font-semibold">Movie.Fetch</h2>
         <div className="flex justify-between items-center md:justify-end  w-[50%]">
           <Search />
           <button onClick={() => setIsOpen(!isOpen)}>
-            <img
-              src={isOpen ? "/assets/close.svg" : "/assets/menu.svg"}
-              className="w-10 h-10 cursor-pointer"
-              alt="Menu"
-            />
+            {isOpen ? (
+              <svg
+                className="w-10 h-10 cursor-pointer"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-10 h-10 cursor-pointer"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
           </button>
         </div>
       </div>

@@ -26,6 +26,7 @@
     font-optical-sizing: auto;
     background: #030014;
     color: var(--color-light-100);
+    overflow-x: hidden;
   }
 
   h1 {
@@ -136,10 +137,9 @@
       @apply text-gray-100 font-medium text-base;
     }
   }
-}
-
-@utility text-gradient {
-  @apply bg-linear-to-r from-[#D6C7FF] to-[#AB8BFF] bg-clip-text text-transparent;
+  .text-gradient {
+    @apply bg-linear-to-r from-[#D6C7FF] to-[#AB8BFF] bg-clip-text text-transparent;
+  }
 }
 
 @utility fancy-text {
